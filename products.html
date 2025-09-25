@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر التقنية - المنتجات</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>متجر التقنية</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li><a href="cart.html">السلة (<span id="cartCount">0</span>)</a></li>
+                    <li><a href="login.html">تسجيل الدخول</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="products">
+            <div class="container">
+                <h1>جميع المنتجات</h1>
+                <p>اكتشف مجموعتنا الواسعة من المنتجات التقنية</p>
+                
+                <!-- Search Bar -->
+                <div style="margin: 2rem 0; text-align: center;">
+                    <input type="text" id="searchInput" placeholder="ابحث عن المنتجات..." 
+                           style="padding: 10px; width: 300px; border: 1px solid #ddd; border-radius: 5px;">
+                    <button onclick="searchProducts()" class="btn" style="margin-right: 10px;">بحث</button>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="products-grid" id="allProductsGrid">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>متجر التقنية</h4>
+                    <p>متجرك الأول للمنتجات التقنية</p>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>اتصل بنا</h4>
+                    <p>الهاتف: +966 50 123 4567</p>
+                    <p>البريد: info@techstore.com</p>
+                </div>
+            </div>
+            <p>&copy; 2025 متجر التقنية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // تحميل جميع المنتجات
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllProducts();
+        });
+        
+        function loadAllProducts() {
+            const allProducts = [
+                ...products,
+                {
+                    id: 4,
+                    name: 'ساعة ذكية',
+                    description: 'ساعة ذكية لتتبع اللياقة البدنية',
+                    price: 1200,
+                    image: '../images/smartwatch.jpg'
+                },
+                {
+                    id: 5,
+                    name: 'تابلت متطور',
+                    description: 'تابلت بشاشة عالية الدقة',
+                    price: 3200,
+                    image: '../images/tablet.jpg'
+                },
+                {
+                    id: 6,
+                    name: 'كاميرا رقمية',
+                    description: 'كاميرا احترافية لالتقاط أجمل اللحظات',
+                    price: 5500,
+                    image: '../images/camera.jpg'
+                }
+            ];
+            
+            const grid = document.getElementById('allProductsGrid');
+            if (grid) {
+                grid.innerHTML = allProducts.map(product => `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='../images/placeholder.jpg'">
+                        <div class="product-info">
+                            <h4 class="product-title">${product.name}</h4>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">${product.price} $</div>
+                            <div class="product-actions">
+                                <button class="btn btn-small" onclick="addToCart(${product.id})">
+                                    أضف للسلة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+        
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

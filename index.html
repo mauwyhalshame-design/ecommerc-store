@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر التقنية - الصفحة الرئيسية</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <h1>متجر التقنية</h1>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">المنتجات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                    <li><a href="cart.html">السلة (<span id="cartCount">0</span>)</a></li>
+                    <li><a href="login.html">تسجيل الدخول</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>مرحباً بك في متجر التقنية</h2>
+                <p>اكتشف أحدث المنتجات التقنية بأفضل الأسعار</p>
+                <img src="../images/hero-image.jpg" alt="منتجات تقنية" class="hero-image">
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn">تسوق الآن</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Timer -->
+        <section class="countdown">
+            <div class="container">
+                <h3>عرض محدود الوقت - خصم 50%</h3>
+                <div class="timer" id="countdown">
+                    <span id="days">07</span> يوم
+                    <span id="hours">12</span> ساعة
+                    <span id="minutes">30</span> دقيقة
+                    <span id="seconds">45</span> ثانية
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products" id="featured">
+            <div class="container">
+                <h2>المنتجات المميزة</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="container">
+                <h3>تعرف على متجرنا</h3>
+                <video controls width="100%" poster="../images/video-poster.jpg">
+                    <source src="../video/intro-video.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>متجر التقنية</h4>
+                    <p>متجرك الأول للمنتجات التقنية</p>
+                </div>
+                <div>
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="products.html">المنتجات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>اتصل بنا</h4>
+                    <p>الهاتف: +966 50 123 4567</p>
+                    <p>البريد: info@techstore.com</p>
+                </div>
+            </div>
+            <p>&copy; 2025 متجر التقنية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
+
